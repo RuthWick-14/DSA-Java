@@ -91,6 +91,6 @@ public class Nqueens {
     }
 
     public static void main(String[] args) {
-        
+        System.out.println(solveNQueens(4));
     }
 }
