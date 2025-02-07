@@ -17,7 +17,7 @@ public class mergeSort {
                 merged[x] = arr[index2];
                 x++;
                 index2++;
-            }``
+            }
             
         }
 
