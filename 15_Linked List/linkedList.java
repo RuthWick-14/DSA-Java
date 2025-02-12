@@ -61,6 +61,6 @@ public class linkedList {
         list.addLast("List");
         list.printList();
         list.addFirst("This");
-        list.printList();`
+        list.printList();
     }
 }
