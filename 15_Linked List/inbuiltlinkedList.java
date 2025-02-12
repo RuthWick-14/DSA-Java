@@ -21,4 +21,3 @@ public class inbuiltlinkedList {
         System.out.println(list);
     }
 }
-`
