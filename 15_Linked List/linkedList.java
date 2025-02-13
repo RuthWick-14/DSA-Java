@@ -99,6 +99,18 @@ public class linkedList {
         head = prevNode;
     }
 
+    //reversed list recursive
+    public Node reversedRecursive(Node head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        Node newHead = reversedRecursive(head.next);
+        head.next.next = head;
+        head.next = null;
+
+        return newHead;
+    }
+
     //print
     public void printList() {
         if (head == null) {
@@ -131,7 +143,8 @@ public class linkedList {
         list.deleteLast();
         list.printList();
         System.out.println(list.getSize());
-        list.reversedIterative();
+        // list.reversedIterative();
+        list.head = list.reversedRecursive(list.head);
         list.printList();
     }
 }
