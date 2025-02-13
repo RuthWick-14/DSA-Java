@@ -79,6 +79,26 @@ public class linkedList {
         secondLast.next = null;
     }
 
+    // print reversed list
+    public void reversedIterative(){
+        if (head == null || head.next == null) {
+            return;
+        }
+
+        Node prevNode = head;
+        Node currNode = head.next;
+        while (currNode != null) {
+            Node nextNode = currNode.next;
+            currNode.next = prevNode;
+
+            //update
+            prevNode = currNode;
+            currNode = nextNode;
+        }
+        head.next =null;
+        head = prevNode;
+    }
+
     //print
     public void printList() {
         if (head == null) {
@@ -111,5 +131,7 @@ public class linkedList {
         list.deleteLast();
         list.printList();
         System.out.println(list.getSize());
+        list.reversedIterative();
+        list.printList();
     }
 }
