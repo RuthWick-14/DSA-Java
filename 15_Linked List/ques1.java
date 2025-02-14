@@ -26,7 +26,7 @@ public class ques1 {
         }
 
         if (n == size) {
-            return head.next;`
+            return head.next;
         }
 
         int indexToSearch = size - n;
