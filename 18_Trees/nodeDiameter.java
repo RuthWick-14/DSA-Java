@@ -40,7 +40,7 @@ public class nodeDiameter {
         return actualheight+1;
     }
 
-
+    //this diameter is of O(n^2), i.e. the worst case of n^2
     public static int diameter(Node root) {
         if (root == null) {
             return 0;
