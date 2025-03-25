@@ -1,4 +1,4 @@
-public class initialSearchSpace {
+public class BSone {
     //using iteration
     // public static int initialSearch(int arr[], int target, int high, int low){
     //     int size = arr.length;
