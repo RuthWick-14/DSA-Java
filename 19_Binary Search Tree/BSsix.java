@@ -25,7 +25,7 @@ public class BSsix {
         return ans;
     }
     public static void main(String[] args) {
-        int arr[] = {3, 4, 5, 0, 1, 2};
+        int arr[] = {10,1,10,10,10};
         System.out.println(minimumRotatedSortedArray(arr));
     }
 }
