@@ -32,6 +32,8 @@ public class BSfourteen {
         //     }
         // }
         // return -1;
+
+        //binary search
         int low = 1;
         int high = maximum(arr);
         int ans = -1;
