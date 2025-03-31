@@ -45,15 +45,32 @@ public class BSseventeen {
 
     public static int maxOfMinDistance(int[] arr, int cows){
         //brute force
-        for (int i = 0; i < (maximum(arr)-minimum(arr)); i++) {
-            if (canPlace(arr, i, cows) == true) {
-                continue;
+        // for (int i = 0; i < (maximum(arr)-minimum(arr)); i++) {
+        //     if (canPlace(arr, i, cows) == true) {
+        //         continue;
+        //     }
+        //     else{
+        //         return i-1;
+        //     }
+        // }
+        // return -1;
+
+        // binary search
+        int low = 1;
+        int high = maximum(arr)-minimum(arr);
+        int ans = -1;
+         
+        while (low <= high) {
+            int mid = (low+high)/2;
+            if (canPlace(arr, mid, cows) == true) {
+                ans = mid;
+                low = mid + 1;
             }
-            else{
-                return i-1;
+            else {
+                high = mid - 1;
             }
         }
-        return -1;
+        return ans;
     }
 
     public static void main(String[] args) {
