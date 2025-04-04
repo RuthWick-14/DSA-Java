@@ -55,12 +55,32 @@ public class LLtwo {
         return head;
     }
 
+    private static Node deleteKthElement(Node head, int k){
+        if (head == null) {
+            return head;
+        }
+        int counter = 0;
+        Node temp = head;
+        Node previous = null;
+        while (temp != null) {
+            counter++;
+            if (counter == k){
+                previous.next = previous.next.next;
+            }
+            previous = temp;
+            temp = temp.next;
+        }
+        return head;
+    }
+
     public static void main(String[] args) {
         int arr[] = {2, 5, 6, 8};
         Node head = convertToLL(arr);
         head = deleteHead(head);
         printLinkedList(head);
         head = deleteTail(head);
+        printLinkedList(head);
+        head = deleteKthElement(head, 2);
         printLinkedList(head);
     }
 }
