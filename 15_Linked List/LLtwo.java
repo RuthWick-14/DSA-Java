@@ -146,6 +146,26 @@ public class LLtwo {
         return head;
     }
 
+    public static Node insertBeforeValue(Node head, int val, int k){
+        if (head == null) {
+            return null;
+        }
+        if (head.data == k) {
+            return new Node(val, head);
+        }
+        Node temp = head;
+        
+        while (temp.next != null) {
+            if (temp.next.data == k) {
+                Node newNode = new Node(val,temp.next);
+                temp.next = newNode;
+                break;
+            }
+            temp = temp.next;
+        }
+        return head;
+    }
+
     public static void main(String[] args) {
         int arr[] = {2, 5, 6, 8};
         Node head = convertToLL(arr);
@@ -160,6 +180,8 @@ public class LLtwo {
         head = insertTail(head, 120);
         printLinkedList(head);
         head = insertKthElement(head, 10,3);
+        printLinkedList(head);
+        head = insertBeforeValue(head, 15, 10);
         printLinkedList(head);
     }
 }
