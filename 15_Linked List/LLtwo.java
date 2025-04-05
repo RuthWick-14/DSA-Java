@@ -59,6 +59,10 @@ public class LLtwo {
         if (head == null) {
             return head;
         }
+        if (k == 1) {
+            head = head.next;
+            return head;
+        }
         int counter = 0;
         Node temp = head;
         Node previous = null;
@@ -73,6 +77,43 @@ public class LLtwo {
         return head;
     }
 
+    private static Node deleteElement(Node head, int element){
+        if (head == null) {
+            return head;
+        }
+        if (head.data == element) {
+            head = head.next;
+            return head;
+        }
+        Node temp = head;
+        Node previous = null;
+        while (temp != null) {
+            if (temp.data == element){
+                previous.next = previous.next.next;
+            }
+            previous = temp;
+            temp = temp.next;
+        }
+        return head;
+    }
+
+    private static Node insertHead(Node head, int val){
+        return new Node(val, head);
+    }
+
+    private static Node insertTail(Node head, int val){
+        if (head == null) {
+            return new Node(val);
+        }
+        Node temp = head;
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+        Node newNode = new Node(val);
+        temp.next = newNode;
+        return head;
+    }
+
     public static void main(String[] args) {
         int arr[] = {2, 5, 6, 8};
         Node head = convertToLL(arr);
@@ -80,7 +121,11 @@ public class LLtwo {
         printLinkedList(head);
         head = deleteTail(head);
         printLinkedList(head);
-        head = deleteKthElement(head, 2);
+        head = deleteElement(head, 5);
+        printLinkedList(head);
+        head = insertHead(head, 100);
+        printLinkedList(head);
+        head = insertTail(head, 120);
         printLinkedList(head);
     }
 }
