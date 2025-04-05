@@ -114,7 +114,7 @@ public class LLtwo {
         return head;
     }
 
-    public static Node insertKthElement(Node head, int val, int k){
+    private static Node insertKthElement(Node head, int val, int k){
         if (head == null) {
             if (k == 1) {
                 return new Node(val);
@@ -146,7 +146,7 @@ public class LLtwo {
         return head;
     }
 
-    public static Node insertBeforeValue(Node head, int val, int k){
+    private static Node insertBeforeValue(Node head, int val, int k){
         if (head == null) {
             return null;
         }
