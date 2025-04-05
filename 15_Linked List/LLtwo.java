@@ -127,15 +127,20 @@ public class LLtwo {
         int counter = 0;
         Node temp = head;
         Node prev = null;
-        Node newNode = new Node(val);
-
+        
         while (temp != null) {
             counter++;
-            if (k == counter) {
-                newNode.next = prev.next;
-                prev.next = newNode;
+            // if (k == counter) {
+            //     Node newNode = new Node(val);
+            //     newNode.next = prev.next;
+            //     prev.next = newNode;
+            // }
+            // prev = temp;
+            if (counter == k-1) {
+                Node newNode = new Node(val);
+                newNode.next = temp.next;
+                temp.next = newNode;
             }
-            prev = temp;
             temp = temp.next;
         }
         return head;
