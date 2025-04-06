@@ -38,9 +38,65 @@ public class LLThree {
         System.out.println("null");
     }
 
+    private static Node deleteHead(Node head){
+        Node previous = head;
+        head = head.next;
+        head.back = null;
+        previous.next = null;
+        return head;
+    }
+
+    private static Node deleteLast(Node head){
+        if (head == null || head.next == null) {
+            return null;
+        }
+        Node tail = head;
+        while (tail.next != null) {
+            tail = tail.next;
+        }
+        Node previous = tail.back;
+        previous.next = null;
+        tail.back = null;
+        return head;
+    }
+
+    private static Node deleteKthElement(Node head, int k){
+        int counter = 0;
+        Node temp = head;
+        while (temp != null) {
+            counter++;
+            if (counter == k) {
+                break;
+            }
+            temp = temp.next;
+        }
+        Node previous = temp.back;
+        Node front = temp.next;
+        if (previous == null && front == null) {
+            return null;
+        }
+        else if (previous == null) {
+            deleteHead(head);
+        }
+        else if (front == null) {
+            deleteLast(head);
+        }
+        previous.next = front;
+        front.back = previous;
+        temp.next = null;
+        temp.back = null;
+        return head;
+    }
+
     public static void main(String[] args) {
         int arr[] = {3, 5, 1, 8, 4};
         Node head = convertNodeToDLL(arr);
+        printLinkedList(head);
+        head = deleteHead(head);
+        printLinkedList(head);
+        head = deleteLast(head);
+        printLinkedList(head);
+        head = deleteKthElement(head, 2);
         printLinkedList(head);
     }
 }
