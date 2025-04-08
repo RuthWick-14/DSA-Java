@@ -31,19 +31,34 @@ public class LLFour {
     }
 
     private static Node reverseDLL(Node head){
-        Node temp = head;
-        Stack<Integer> st = new Stack<>();
-        while (temp != null) {
-            st.push(temp.data);
-            temp = temp.next;
+        //brute force
+        // Node temp = head;
+        // Stack<Integer> st = new Stack<>();
+        // while (temp != null) {
+        //     st.push(temp.data);
+        //     temp = temp.next;
+        // }
+        // temp = head;
+        // while (temp != null) {
+        //     temp.data = st.peek();
+        //     st.pop();
+        //     temp = temp.next;
+        // }
+        // return head;
+
+        // optimized code
+        if (head == null || head.next == null) {
+            return head;
         }
-        temp = head;
-        while (temp != null) {
-            temp.data = st.peek();
-            st.pop();
-            temp = temp.next;
+        Node last = null;
+        Node current = head;
+        while (current != null) {
+            last = current.back;
+            current.back = current.next;
+            current.next = last;
+            current = current.back;
         }
-        return head;
+        return last.back;
     }
 
     private static void printLinkedList(Node head) {
