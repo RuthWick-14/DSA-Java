@@ -54,6 +54,7 @@ public class LLFive {
             Node newNode = new Node(sum % 10);
             carry = sum/10;
             current.next = newNode;
+            current = current.next;
             if (temp1 != null) {
                 temp1 = temp1.next;
             }
