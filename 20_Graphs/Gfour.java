@@ -21,8 +21,8 @@ public class Gfour {
         for (int i = 0; i < V; i++) {
             for (int j = 0; j < V; j++) {
                 if (adj.get(i).get(j) == 1 && i!=j) {
-                    adjLS.get(i).get(j);
-                    adjLS.get(j).get(i);
+                    adjLS.get(i).add(j);
+                    adjLS.get(j).add(i);
                 }
             }
         }
