@@ -10,7 +10,7 @@ class Pair{
         this.col = col;
     }
 }
-
+// NUMBER OF ENCLAVES
 public class Gtwelve {
     private int numberOfEnclaves(int[][] grid){
         Queue<Pair> q = new LinkedList<Pair>();
