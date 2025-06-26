@@ -1,8 +1,8 @@
+import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.LinkedHashMap;
 
-public class Hthree {
+public class Hfour {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
@@ -12,8 +12,8 @@ public class Hthree {
         }
 
         //precompute
-        // it is ordered hashmap
-        Map<Integer, Integer> mpp = new LinkedHashMap<>();
+        // in java unordered map like this
+        Map<Integer, Integer> mpp = new HashMap<>();
         // in char hashing we use Map<Character, Integer>
         for (int i = 0; i < n; i++) {
             mpp.put(arr[i], mpp.getOrDefault(arr[i], 0) + 1);
