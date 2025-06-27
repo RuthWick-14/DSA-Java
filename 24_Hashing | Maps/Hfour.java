@@ -11,7 +11,7 @@ public class Hfour {
             arr[i] = sc.nextInt();
         }
 
-        //precompute
+        // precompute
         // in java unordered map like this
         Map<Integer, Integer> mpp = new HashMap<>();
         // in char hashing we use Map<Character, Integer>
