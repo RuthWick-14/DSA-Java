@@ -58,14 +58,15 @@ public class Ttwo {
                 node.put(words.charAt(i), new Node());
             }
             node = node.get(words.charAt(i));
-            node.increaseEnd();
+            node.increasePrefix();
         }
+        node.increaseEnd();
     }
 
     public int countWordsEqualTo(String words) {
         Node node = root;
         for (int i = 0; i < words.charAt(i); i++) {
-            if (!node.containsKey(words.charAt(i))) {
+            if (node.containsKey(words.charAt(i))) {
                 node = node.get(words.charAt(i));
             }
             else {
