@@ -66,15 +66,17 @@ class Heap {
 }
 
 public class Heapone {
+    //max heapify
     public static void heapify(int arr[], int n, int i) {
         int largest = i;
         int left = 2*i;
         int right = 2*i+1;
 
-        if (left < n && arr[largest] < arr[left]) {
+        // use < n "not <=n" if it is 0 based indexing, else otherwise.
+        if (left <= n && arr[largest] < arr[left]) {
             largest = left;
         }
-        if (right < n && arr[largest] < arr[right]) {
+        if (right <= n && arr[largest] < arr[right]) {
             largest = right;
         }
         if(largest != i) {
@@ -82,6 +84,22 @@ public class Heapone {
             arr[largest] = arr[i];
             arr[i] = temp;
             heapify(arr, n, largest);
+        }
+    }
+
+    //heap sort
+    public static void heapSort(int arr[], int n) {
+        int size = n;
+
+        while (size > 1) {
+            //step:1 swap
+            int temp = arr[size];
+            arr[size] = arr[1];
+            arr[1] = temp;
+            size--;
+
+            //step:2 heapify
+            heapify(arr, size, 1);
         }
     }
 
@@ -101,6 +119,14 @@ public class Heapone {
         for (int i = n/2; i > 0; i--) {
             heapify(arr, n, i);
         }
+        for (int i = 1; i <= n; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        System.out.println();
+        
+        //heap sort
+        heapSort(arr, n);
+
         for (int i = 1; i <= n; i++) {
             System.out.print(arr[i] + " ");
         }
